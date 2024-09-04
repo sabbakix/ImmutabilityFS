@@ -1,2 +1,2 @@
 # ImmutabilityFS
-Manage immutability attributes
+Manage immutability attributes on linux box

@@ -1,3 +1,9 @@
+# Custom ignore
+*.vbm
+*.vbk
+*.vib
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
