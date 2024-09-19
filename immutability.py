@@ -60,6 +60,7 @@ def get_paths_from_vbm(pathfile):
             return sorted_paths
     else:
         print("no .vbm")
+        
 
 
 path="/POOL2/Z14/B14/OMEGA_PC_HP_PROBOOK_470_G0_WIN10"
@@ -77,4 +78,5 @@ for entry in dir_list:
             vbm_paths_list = get_paths_from_vbm(pathfile)
         else:
             set_immutable(pathfile)
+
 
