@@ -5,8 +5,10 @@ import re
 import time
 import shutil
 import subprocess
+from sys import exit
 from data import imfolders
 from datetime import datetime, timedelta
+
 
 
 
@@ -20,6 +22,55 @@ def is_immutable(pathfile):
         return True
     else:
         return False
+    
+def get_backup_chain(filepath):
+    """
+    Get the backup chain for a given file, filtering out non-backup files.
+    
+    Args:
+        filepath (str): The path to the file.
+    
+    Returns:
+        list: A sorted list of backup files (.vbk, .vib, .vbm, .vbm.off) in the same directory.
+    """
+    # Get the directory of the file
+    directory = os.path.dirname(filepath)
+    # Get the name of the file
+    filename = os.path.basename(filepath)
+    
+    # Check if the file is a .vbk, .vib, .vbm, or .vbm.off file
+    if filename.endswith(('.vbk', '.vib', '.vbm', '.vbm.off')):
+        # Get the list of files in the directory
+        files = os.listdir(directory)
+        # Sort the files
+        files.sort()
+        
+        # Initialize an empty list to store backup files
+        backup_files = []
+        
+        # Iterate over the files and filter out non-backup files
+        for file in files:
+            if file.endswith('.vbk'):
+                backup_files.append(file)
+            elif file.endswith('.vib'):
+                backup_files.append(file)
+            elif file.endswith('.vbm'):
+                backup_files.append(file)
+            elif file.endswith('.vbm.off'):
+                backup_files.append(file)
+        
+        backup_files.sort()
+
+        return backup_files
+    else:
+        return []
+'''
+files = get_backup_chain("/POOL2/Z14/B14/OMEGA_PC_HP_PROBOOK_470_G0_WIN10/OMEGA_PC_HP_PROBOOK_470_G0_WIN102024-09-15T014701.vib")
+print(files)
+exit()
+
+'''
+
 
 def len_of_vbk_vib_immutable(veeam_folder):
     n_immutable = 0

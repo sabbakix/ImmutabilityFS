@@ -2,7 +2,7 @@
 *.vbm
 *.vbk
 *.vib
-
+testdir/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
