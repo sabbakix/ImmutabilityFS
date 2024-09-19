@@ -6,13 +6,10 @@ import re
 from datetime import datetime, timedelta
 import time
 import shutil
+from data import imfolders
 
 # path : time frame
-list_of_veeam_folder_to_protect = {
-    "/POOL2/Z14/B14/OMEGA_PC_HP_PROBOOK_470_G0_WIN10":8,
-    "/POOL2/Z02/B02/user BackupJob1":8
-}
-
+list_of_veeam_folder_to_protect = imfolders()
 
 def is_immutable(pathfile):
     result = subprocess.run(["lsattr", pathfile ], shell=False, capture_output=True, text=True)
